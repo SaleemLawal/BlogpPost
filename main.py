@@ -40,7 +40,7 @@ class User(UserMixin, db.Model):
     name = db.Column(db.String(100))
     posts = relationship("BlogPost", back_populates="author")
     comments = relationship("Comment", back_populates="comment_author")
-
+db.create_all()
 
 class BlogPost(db.Model):
     __tablename__ = "blog_posts"
@@ -53,7 +53,7 @@ class BlogPost(db.Model):
     body = db.Column(db.Text, nullable=False)
     img_url = db.Column(db.String(250), nullable=False)
     comments = relationship("Comment", back_populates="parent_post")
-
+db.create_all()
 
 class Comment(db.Model):
     __tablename__ = "comments"
@@ -63,7 +63,7 @@ class Comment(db.Model):
     parent_post = relationship("BlogPost", back_populates="comments")
     comment_author = relationship("User", back_populates="comments")
     text = db.Column(db.Text, nullable=False)
-# db.create_all()
+db.create_all()
 
 
 def admin_only(f):
