@@ -22,6 +22,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
+app.app_context()
 
 
 @login_manager.user_loader
@@ -61,7 +62,7 @@ class Comment(db.Model):
     parent_post = relationship("BlogPost", back_populates="comments")
     comment_author = relationship("User", back_populates="comments")
     text = db.Column(db.Text, nullable=False)
-db.create_all()
+# db.create_all()
 
 
 def admin_only(f):

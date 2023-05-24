@@ -1,0 +1,7 @@
+__pycache__/forms.cpython-311.pyc
+.cache/replit/nix/env.json
+.config/pip/pip.conf
+.config/pypoetry/config.toml
+.upm/store.json
+.DS_Store
+poetry.lock
